@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Board from './Board';
 import Preview from './Preview';
 import Help from './Help';

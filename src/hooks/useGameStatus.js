@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 export const useGameStatus = rowsCleared => {
   const [score, setScore] = useState(0);
@@ -9,11 +9,10 @@ export const useGameStatus = rowsCleared => {
 
   useEffect(() => {
     if (rowsCleared > 0) {
-      const points = linePoints[rowsCleared - 1] * level;
-      setScore(prev => prev + points);
+      setScore(prev => prev + linePoints[rowsCleared - 1] * level);
       setRows(prev => prev + rowsCleared);
     }
-  }, [rowsCleared]);
+  }, [level, rowsCleared, linePoints]);
 
   return [score, setScore, rows, setRows, level, setLevel];
 }; 
